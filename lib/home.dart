@@ -41,8 +41,7 @@ class _HomeState extends State<Home> {
                 icon: const Icon(Icons.arrow_back_rounded),
                 onPressed: () {
                   setState(() {
-                    // _currentIndex = 0;
-                    Navigator.pushNamed(context, "/login");
+                    _currentIndex = 0;
                   });
                 }),
         actions: [

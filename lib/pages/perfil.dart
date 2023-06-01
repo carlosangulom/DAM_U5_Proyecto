@@ -34,19 +34,27 @@ class _PerfilState extends State<Perfil> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.emoji_people_rounded),
-                Text("Estatura: 170cm"),
+                Text(" Estatura: 170cm"),
                 SizedBox(
                   width: 20,
                 ),
                 Icon(Icons.scale_rounded),
-                Text("Peso: 170cm"),
+                Text(" Peso: 170cm"),
                 SizedBox(
                   width: 20,
                 ),
                 Icon(Icons.calendar_month_rounded),
-                Text("Edad: 22")
+                Text(" Edad: 22")
               ],
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text("Tu proxima cita es el: 01/06/2023",
+                style: TextStyle(
+                    fontFamily: "Aubrey",
+                    fontSize: 20,
+                    color: Theme.of(context).colorScheme.secondary)),
             const Spacer(
               flex: 1,
             ),
