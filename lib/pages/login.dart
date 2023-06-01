@@ -60,7 +60,6 @@ class _LoginState extends State<Login> {
               TextButton(
                 child: const Text('¿No tienes una cuenta? Regístrate'),
                 onPressed: () async {
-                  // Mendiga basura, aquí metes la ruta o el Navigator.push para el de crear cuenta, le puse SignUp
                   Navigator.pushNamed(context, "/register");
                 },
               ),
