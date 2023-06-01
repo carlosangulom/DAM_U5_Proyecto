@@ -4,6 +4,9 @@ import 'home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import './pages/login.dart';
+import './pages/registro.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -27,7 +30,12 @@ class MyApp extends StatelessWidget {
             background: const Color(0xfffffcf2)),
         useMaterial3: true,
       ),
-      home: const Home(),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => const Home(),
+        "/login": (context) => const Login(),
+        "/register": (context) => const SignUp()
+      },
     );
   }
 }
