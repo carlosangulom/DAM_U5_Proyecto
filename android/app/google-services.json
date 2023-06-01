@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "139999268733",
+    "project_id": "dam-u4",
+    "storage_bucket": "dam-u4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139999268733:android:4ff6d559461ce1a14b4614",
+        "android_client_info": {
+          "package_name": "com.example.dam_u4_proyecto1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeBF4R9r7YE2XzLSnji2nw0f4E9cOuPr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139999268733-4su7a7em7rirbked788a8r0bho96jnfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.damU4Proyecto1.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139999268733:android:0c8ce2e5fbf27ee74b4614",
+        "android_client_info": {
+          "package_name": "com.example.dam_u4_proyecto2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeBF4R9r7YE2XzLSnji2nw0f4E9cOuPr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139999268733-4su7a7em7rirbked788a8r0bho96jnfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.damU4Proyecto1.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139999268733:android:4379f41155f98cf84b4614",
+        "android_client_info": {
+          "package_name": "com.example.dam_u5_proyecto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeBF4R9r7YE2XzLSnji2nw0f4E9cOuPr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139999268733-rhmmhhqk7gjd4be36rbq3t79r9ueh2f5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139999268733-4su7a7em7rirbked788a8r0bho96jnfg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.damU4Proyecto1.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
