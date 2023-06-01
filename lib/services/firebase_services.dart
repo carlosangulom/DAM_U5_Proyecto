@@ -15,3 +15,12 @@ Future<bool> loginUser(String user, String password) async {
     return true;
   }
 }
+
+Future<void> crearUser(String user, String password, String nombre, String apellido) async {
+  await db.collection('usuarios').add({
+    'user': user,
+    'password': password,
+    'nombre': nombre,
+    'apellido': apellido,
+  });
+}
