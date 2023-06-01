@@ -128,6 +128,7 @@ class _InicioState extends State<Inicio> {
                           const SizedBox(width: 10,),
                           Container(
                             padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.only(top: 5),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: const Color(0xff6b9080),
@@ -140,12 +141,6 @@ class _InicioState extends State<Inicio> {
                                   fontFamily: "DreamOrphans"),
                             ),
                           ),
-                          const Spacer(flex: 1,),
-                          IconButton(
-                            icon: const Icon(Icons.change_circle_rounded),
-                            onPressed: () {},
-                          ),
-                          const SizedBox(width: 10,),
                         ],
                       ),
                       const Spacer(
@@ -155,7 +150,7 @@ class _InicioState extends State<Inicio> {
                         height: 50,
                         width: MediaQuery.of(context).size.width,
                         padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 10),
+                            vertical: 10, horizontal: 10),
                         decoration: const BoxDecoration(
                             color: Color(0xff6b9080),
                             borderRadius: BorderRadius.only(
@@ -171,14 +166,18 @@ class _InicioState extends State<Inicio> {
                       )
                     ],
                   )),
-              Container(
+                  Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 5),
                   margin:
                       const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 10),
                   decoration: BoxDecoration(
                       color: const Color(0xffcfe1b9),
                       borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                          image: NetworkImage(
+                              "https://www.eltiempo.com/uploads/2022/11/20/637a938f80be6.jpeg"),
+                          fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(255, 204, 203, 203),
@@ -187,18 +186,63 @@ class _InicioState extends State<Inicio> {
                           offset: Offset(0, 3),
                         ),
                       ]),
-                  child: const Text(
-                    'Colación',
-                    style: TextStyle(fontSize: 16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 10,),
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.only(top: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color(0xff6b9080),
+                            ),
+                            child: const Text(
+                              'Colación',
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  color: Colors.white,
+                                  fontFamily: "DreamOrphans"),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: const BoxDecoration(
+                            color: Color(0xff6b9080),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                        child: const Text(
+                          '60gr Manzana',
+                          style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                              fontFamily: "Aubrey"),
+                        ),
+                      )
+                    ],
                   )),
-              Container(
+                  Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 5),
                   margin:
                       const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 10),
                   decoration: BoxDecoration(
                       color: const Color(0xffcfe1b9),
                       borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                          image: NetworkImage(
+                              "https://editorialtelevisa.brightspotcdn.com/wp-content/uploads/2020/08/pozole.jpg"),
+                          fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(255, 204, 203, 203),
@@ -207,18 +251,63 @@ class _InicioState extends State<Inicio> {
                           offset: Offset(0, 3),
                         ),
                       ]),
-                  child: const Text(
-                    'Comida',
-                    style: TextStyle(fontSize: 16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 10,),
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.only(top: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color(0xff6b9080),
+                            ),
+                            child: const Text(
+                              'Comida',
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  color: Colors.white,
+                                  fontFamily: "DreamOrphans"),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: const BoxDecoration(
+                            color: Color(0xff6b9080),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                        child: const Text(
+                          'Pozole grasoso',
+                          style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                              fontFamily: "Aubrey"),
+                        ),
+                      )
+                    ],
                   )),
-              Container(
+                  Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 5),
                   margin:
                       const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 10),
                   decoration: BoxDecoration(
                       color: const Color(0xffcfe1b9),
                       borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                          image: NetworkImage(
+                              "https://media.istockphoto.com/id/484286636/photo/nuts-and-berries.jpg?s=612x612&w=0&k=20&c=21DCnalnhfifGIi9tQXsbOtGpKTf-yJ16EOtMJ3Uz3c="),
+                          fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(255, 204, 203, 203),
@@ -227,18 +316,63 @@ class _InicioState extends State<Inicio> {
                           offset: Offset(0, 3),
                         ),
                       ]),
-                  child: const Text(
-                    'Colación',
-                    style: TextStyle(fontSize: 16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 10,),
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.only(top: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color(0xff6b9080),
+                            ),
+                            child: const Text(
+                              'Colación',
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  color: Colors.white,
+                                  fontFamily: "DreamOrphans"),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: const BoxDecoration(
+                            color: Color(0xff6b9080),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                        child: const Text(
+                          'Pozole grasoso',
+                          style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                              fontFamily: "Aubrey"),
+                        ),
+                      )
+                    ],
                   )),
-              Container(
+                  Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 5),
                   margin:
                       const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 10),
                   decoration: BoxDecoration(
                       color: const Color(0xffcfe1b9),
                       borderRadius: BorderRadius.circular(20),
+                      image: const DecorationImage(
+                          image: NetworkImage(
+                              "https://img77.uenicdn.com/image/upload/v1611557278/business/a106f102-0db7-45fa-8b42-65547518612c.jpg"),
+                          fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(255, 204, 203, 203),
@@ -247,10 +381,51 @@ class _InicioState extends State<Inicio> {
                           offset: Offset(0, 3),
                         ),
                       ]),
-                  child: const Text(
-                    'Cena',
-                    style: TextStyle(fontSize: 16.0),
-                  ))
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 10,),
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.only(top: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color(0xff6b9080),
+                            ),
+                            child: const Text(
+                              'Cena',
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  color: Colors.white,
+                                  fontFamily: "DreamOrphans"),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: const BoxDecoration(
+                            color: Color(0xff6b9080),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                        child: const Text(
+                          'Maruchan preparada',
+                          style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                              fontFamily: "Aubrey"),
+                        ),
+                      )
+                    ],
+                  )),
             ],
           ),
           const SizedBox(
