@@ -72,8 +72,20 @@ Future<List> getComidasDia() async {
   List comidas = await getAllComidas();
   List comidasDia = [];
   var desayuno = comidas.where((element) => element["tipo"].toString().contains("Desayuno")).toList();
+  var colaciones = comidas.where((element) => element["tipo"].toString().contains("Colaciones")).toList();
   var comida = comidas.where((element) => element["tipo"].toString().contains("Comida")).toList();
   var cena = comidas.where((element) => element["tipo"].toString().contains("Cena")).toList();
-  comidasDia.addAll({desayuno.last, comida.last, cena.last});
+  comidasDia.addAll({desayuno.last, colaciones.first, comida.last, colaciones.last, cena.last});
+  return comidasDia;
+}
+
+Future<List> getComidas() async {
+  List comidas = await getAllComidas();
+  List comidasDia = [];
+  var desayuno = comidas.where((element) => element["tipo"].toString().contains("Desayuno")).toList();
+  var colaciones = comidas.where((element) => element["tipo"].toString().contains("Colaciones")).toList();
+  var comida = comidas.where((element) => element["tipo"].toString().contains("Comida")).toList();
+  var cena = comidas.where((element) => element["tipo"].toString().contains("Cena")).toList();
+  comidasDia.addAll({desayuno, comida, cena, colaciones});
   return comidasDia;
 }

@@ -15,11 +15,17 @@ class EditUser extends StatefulWidget {
 class _EditUserState extends State<EditUser> {
   AuthService authService = AuthService();
 
+  final nombreController = TextEditingController();
+  final avatarController = TextEditingController();  
+
   String avatar = " ";
+  String nombre = " ";
+
   @override
   void initState() {
     super.initState();
     avatar = "${authService.user["avatar"]}";
+    nombre = "${authService.user["nombre"]}";
   }
 
   @override
@@ -66,8 +72,9 @@ class _EditUserState extends State<EditUser> {
                               context: context,
                               type: QuickAlertType.custom,
                               confirmBtnText: "Aceptar",
-
+                              customAsset: "assets/dialogs/avatar.gif",
                               widget: TextFormField(
+                                controller: avatarController,
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   hintText: "${arguments["user"]["avatar"]}",
@@ -76,12 +83,17 @@ class _EditUserState extends State<EditUser> {
                                   ),
                                 ),
                               ),
-                              onConfirmBtnTap: () {},
+                              onConfirmBtnTap: () {
+                                setState(() {
+                                  avatar = avatarController.text;
+                                });
+                                Navigator.pop(context);
+                              },
                               showCancelBtn: true,
                               confirmBtnColor: const Color(0xff6b9080),
                               backgroundColor:
                                   Theme.of(context).colorScheme.background,
-                              cancelBtnText: "cancelar");
+                              cancelBtnText: "Cancelar");
                           },
                           icon: const Icon(Icons.edit),
                           alignment: Alignment.bottomRight,
@@ -117,6 +129,7 @@ class _EditUserState extends State<EditUser> {
                               confirmBtnText: "Aceptar",
                               customAsset: "assets/dialogs/edit.gif",
                               widget: TextFormField(
+                                controller: nombreController,
                                 decoration: InputDecoration(
                                   alignLabelWithHint: true,
                                   hintText: "${arguments["user"]["nombre"]}",
@@ -125,12 +138,17 @@ class _EditUserState extends State<EditUser> {
                                   ),
                                 ),
                               ),
-                              onConfirmBtnTap: () {},
+                              onConfirmBtnTap: () {
+                                setState(() {
+                                  nombre = nombreController.text;
+                                });
+                                Navigator.pop(context);
+                              },
                               showCancelBtn: true,
                               confirmBtnColor: const Color(0xff6b9080),
                               backgroundColor:
                                   Theme.of(context).colorScheme.background,
-                              cancelBtnText: "cancelar");
+                              cancelBtnText: "Cancelar");
                         },
                         icon: const Icon(Icons.edit),
                         alignment: Alignment.bottomRight,
@@ -150,7 +168,7 @@ class _EditUserState extends State<EditUser> {
                   ElevatedButton(onPressed: (){}, child: const Text("Cancelar")),
                   const SizedBox(width: 30,),
                   ElevatedButton(onPressed: (){
-                    updateUser("Carlos A", "ccaaggrrllooss", arguments["user"]["uid"]);
+                    updateUser(nombre, avatar, arguments["user"]["uid"]);
                     Navigator.popAndPushNamed(context, "/perfil");
                   }, child: const Text("Aceptar"))
                 ],

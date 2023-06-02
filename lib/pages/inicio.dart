@@ -100,18 +100,25 @@ class _InicioState extends State<Inicio> {
             margin: const EdgeInsets.only(bottom: 10),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
                 Row(
                   children: [
-                    Text(
+                    InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, "/comidas");
+                      },
+                      child: Text(
                       "Comidas del dia",
                       style: TextStyle(
                           fontFamily: "Aubrey",
                           fontSize: 24,
                           color: Theme.of(context).colorScheme.secondary),
-                    )
+                    ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/comidas");
+                        },
+                        icon: const Icon(Icons.arrow_forward_ios_rounded))
                   ],
                 ),
               ],
@@ -210,13 +217,23 @@ class _InicioState extends State<Inicio> {
               children: [
                 Row(
                   children: [
-                    Text(
+                    InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, "/stats");
+                      },
+                      child: Text(
                       "Estadisticas",
                       style: TextStyle(
                           fontFamily: "Aubrey",
                           fontSize: 24,
                           color: Theme.of(context).colorScheme.secondary),
-                    )
+                    ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/stats");
+                        },
+                        icon: const Icon(Icons.arrow_forward_ios_rounded))
                   ],
                 ),
               ],

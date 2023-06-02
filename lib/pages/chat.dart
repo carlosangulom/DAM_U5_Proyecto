@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const MaterialApp(
-    home: ChatPage(),
-  );
+        home: ChatPage(),
+      );
 }
 
 class ChatPage extends StatefulWidget {
@@ -46,6 +46,12 @@ class _ChatPageState extends State<ChatPage> {
     _loadMessages();
   }
 
+  // void _addMessage(types.Message message) {
+  //   setState(() {
+  //     _messages.insert(0, message);
+  //   });
+  // }
+
   void _addMessage(types.Message message) {
     setState(() {
       _messages.insert(0, message);
@@ -61,7 +67,9 @@ class _ChatPageState extends State<ChatPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
@@ -70,7 +78,9 @@ class _ChatPageState extends State<ChatPage> {
                 icon: const Icon(Icons.image),
                 label: const Text('Imagen'),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
@@ -79,7 +89,9 @@ class _ChatPageState extends State<ChatPage> {
                 icon: const Icon(Icons.file_open),
                 label: const Text('Archivo'),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
@@ -147,9 +159,9 @@ class _ChatPageState extends State<ChatPage> {
       if (message.uri.startsWith('http')) {
         try {
           final index =
-          _messages.indexWhere((element) => element.id == message.id);
+              _messages.indexWhere((element) => element.id == message.id);
           final updatedMessage =
-          (_messages[index] as types.FileMessage).copyWith(
+              (_messages[index] as types.FileMessage).copyWith(
             isLoading: true,
           );
 
@@ -169,9 +181,9 @@ class _ChatPageState extends State<ChatPage> {
           }
         } finally {
           final index =
-          _messages.indexWhere((element) => element.id == message.id);
+              _messages.indexWhere((element) => element.id == message.id);
           final updatedMessage =
-          (_messages[index] as types.FileMessage).copyWith(
+              (_messages[index] as types.FileMessage).copyWith(
             isLoading: null,
           );
 
@@ -186,9 +198,9 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _handlePreviewDataFetched(
-      types.TextMessage message,
-      types.PreviewData previewData,
-      ) {
+    types.TextMessage message,
+    types.PreviewData previewData,
+  ) {
     final index = _messages.indexWhere((element) => element.id == message.id);
     final updatedMessage = (_messages[index] as types.TextMessage).copyWith(
       previewData: previewData,
@@ -223,36 +235,42 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: const Text("Chat"),
-      centerTitle: true,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () => Navigator.popAndPushNamed(context, "/home"),
-        iconSize: 32,
-      ),
-    ),
-    body: Chat(
-      messages: _messages,
-      onAttachmentPressed: _handleAttachmentPressed,
-      onMessageTap: _handleMessageTap,
-      onPreviewDataFetched: _handlePreviewDataFetched,
-      onSendPressed: _handleSendPressed,
-      showUserAvatars: true,
-      showUserNames: true,
-      user: _user,
-      theme: const DefaultChatTheme(
-        inputBackgroundColor: Color(0xff6b9080),
-        backgroundColor: Color(0xfffffcf2),
-        sentMessageDocumentIconColor: Color(0xff6b9080),
-        deliveredIcon: Icon(Icons.check,),
-        primaryColor: Color(0xff6b9080),
-        secondaryColor: Color(0xffA3B18A),
-        receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
-        receivedMessageBodyLinkTextStyle: TextStyle(color: Colors.tealAccent),
-        receivedMessageLinkDescriptionTextStyle: TextStyle(color: Colors.tealAccent),
-        receivedMessageLinkTitleTextStyle: TextStyle(color: Colors.tealAccent, fontWeight: FontWeight.bold),
-      ),
-    ),
-  );
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          title: const Text("Chat"),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.popAndPushNamed(context, "/home"),
+            iconSize: 32,
+          ),
+        ),
+        body: Chat(
+          messages: _messages,
+          onAttachmentPressed: _handleAttachmentPressed,
+          onMessageTap: _handleMessageTap,
+          onPreviewDataFetched: _handlePreviewDataFetched,
+          onSendPressed: _handleSendPressed,
+          showUserAvatars: true,
+          showUserNames: true,
+          user: _user,
+          theme: const DefaultChatTheme(
+            inputBackgroundColor: Color(0xff6b9080),
+            backgroundColor: Color(0xfffffcf2),
+            sentMessageDocumentIconColor: Color(0xff6b9080),
+            deliveredIcon: Icon(
+              Icons.check,
+            ),
+            primaryColor: Color(0xff6b9080),
+            secondaryColor: Color(0xffA3B18A),
+            receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
+            receivedMessageBodyLinkTextStyle:
+                TextStyle(color: Colors.tealAccent),
+            receivedMessageLinkDescriptionTextStyle:
+                TextStyle(color: Colors.tealAccent),
+            receivedMessageLinkTitleTextStyle: TextStyle(
+                color: Colors.tealAccent, fontWeight: FontWeight.bold),
+          ),
+        ),
+      );
 }

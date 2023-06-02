@@ -8,6 +8,8 @@ import './pages/login.dart';
 import './pages/registro.dart';
 import './pages/edit_user.dart';
 import './pages/chat.dart';
+import './pages/comida_dia.dart';
+import 'package:dam_u5_proyecto/pages/estadisticas.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +43,8 @@ class MyApp extends StatelessWidget {
         "/perfil":(context) => const Home(index: 2),
         "/plan":(context) => const Home(index: 1),
         "/chat":(context) => const ChatPage(),
+        "/comidas":(context) => const Comidas(),
+        "/stats":(context) =>  const Estadisticas()
       },
     );
   }
