@@ -6,6 +6,8 @@ import 'firebase_options.dart';
 
 import './pages/login.dart';
 import './pages/registro.dart';
+import './pages/edit_user.dart';
+import './pages/plan.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,9 +34,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/home",
       routes: {
-        "/home": (context) => const Home(),
+        "/home": (context) => const Home(index: 0,),
         "/login": (context) => const Login(),
-        "/register": (context) => const SignUp()
+        "/register": (context) => const SignUp(),
+        "/edit": (context) => const EditUser(),
+        "/perfil":(context) => const Home(index: 2),
+        "/plan":(context) => const Home(index: 1)
       },
     );
   }

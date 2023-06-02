@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:random_avatar/random_avatar.dart';
 
+import '../services/auth_service.dart';
+
 class Perfil extends StatefulWidget {
   const Perfil({Key? key}) : super(key: key);
 
@@ -9,6 +11,9 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+
+  AuthService authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,11 +23,11 @@ class _PerfilState extends State<Perfil> {
             const SizedBox(
               height: 50,
             ),
-            RandomAvatar("barocio", height: 100, width: 100),
+            RandomAvatar("${authService.user["avatar"]}", height: 100, width: 100),
             const SizedBox(
               height: 20,
             ),
-            Text("Alan Barocio Contreras",
+            Text("${authService.user["nombre"]}",
                 style: TextStyle(
                     fontFamily: "DreamOrphans",
                     fontSize: 32,
@@ -59,7 +64,7 @@ class _PerfilState extends State<Perfil> {
               flex: 1,
             ),
             ElevatedButton(
-                onPressed: () => Navigator.popAndPushNamed(context, "/login"),
+                onPressed: () {Navigator.pushNamed(context, "/login", arguments: {"nombre": "Alan Barocio Contreras"});},
                 child: const Text("Cerrar Sesión"))
           ],
         ),

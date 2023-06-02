@@ -43,6 +43,8 @@ dependencies:
   random_avatar: ^0.0.8
   cloud_firestore: ^4.8.0
   quickalert: ^1.0.1
+  intl: ^0.18.1
+  flutter_chat_ui: ^1.6.8
 
 dev_dependencies:
   flutter_test:
