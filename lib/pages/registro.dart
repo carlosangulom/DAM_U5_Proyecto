@@ -37,22 +37,22 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(height: 20.0),
               TextField(
                 controller: _nombreController,
-                decoration: InputDecoration(labelText: 'Nombre', ),
+                decoration: const InputDecoration(labelText: 'Nombre', ),
               ),
               const SizedBox(height: 10.0),
               TextField(
                 controller: _apellidoController,
-                decoration: InputDecoration(labelText: 'Apellido'),
+                decoration: const InputDecoration(labelText: 'Apellido'),
               ),
               const SizedBox(height: 10.0),
               TextField(
                 controller: _userController,
-                decoration: InputDecoration(labelText: 'Usuario'),
+                decoration: const InputDecoration(labelText: 'Usuario'),
               ),
               const SizedBox(height: 10.0),
               TextField(
                 controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Contraseña'),
+                decoration: const InputDecoration(labelText: 'Contraseña'),
                 obscureText: true,
               ),
               const SizedBox(height: 20.0),

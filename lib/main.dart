@@ -7,6 +7,7 @@ import 'firebase_options.dart';
 import './pages/login.dart';
 import './pages/registro.dart';
 import './pages/edit_user.dart';
+import './pages/chat.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         "/register": (context) => const SignUp(),
         "/edit": (context) => const EditUser(),
         "/perfil":(context) => const Home(index: 2),
-        "/plan":(context) => const Home(index: 1)
+        "/plan":(context) => const Home(index: 1),
+        "/chat":(context) => const ChatPage(),
       },
     );
   }
