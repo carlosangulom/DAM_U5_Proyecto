@@ -165,7 +165,9 @@ class _EditUserState extends State<EditUser> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){}, child: const Text("Cancelar")),
+                  ElevatedButton(onPressed: (){
+                    Navigator.popAndPushNamed(context, "/perfil");
+                  }, child: const Text("Cancelar")),
                   const SizedBox(width: 30,),
                   ElevatedButton(onPressed: (){
                     updateUser(nombre, avatar, arguments["user"]["uid"]);

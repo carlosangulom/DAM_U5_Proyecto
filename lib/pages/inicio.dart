@@ -30,6 +30,26 @@ class _InicioState extends State<Inicio> {
     });
   }
 
+  Color _getColor(String tipo){
+    switch(tipo){
+      case "Desayuno": {
+        return const Color(0xffa09ebb);
+      }
+      case "Comida": {
+        return const Color(0xfff7b267);
+      }
+      case "Cena": {
+        return const Color(0xff5fa8d3);
+      }
+      case "Colaciones": {
+        return const Color(0xff6d597a);
+      }
+      default: {
+        return const Color(0xff6b9080);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -160,7 +180,7 @@ class _InicioState extends State<Inicio> {
                               margin: const EdgeInsets.only(top: 5),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
-                                color: const Color(0xff6b9080),
+                                color: _getColor(element["tipo"]),
                               ),
                               child: Text(
                                 '${element["tipo"]}',
@@ -169,6 +189,25 @@ class _InicioState extends State<Inicio> {
                                     color: Colors.white,
                                     fontFamily: "DreamOrphans"),
                               ),
+                            ),
+                            const Spacer(flex: 1,),
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              margin: const EdgeInsets.only(top: 5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: _getColor(element["tipo"]),
+                              ),
+                              child: Text(
+                                '${element["contenidocal"]}kcal',
+                                style: const TextStyle(
+                                    fontSize: 15.0,
+                                    color: Colors.white,
+                                    fontFamily: "DreamOrphans"),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
                             ),
                           ],
                         ),
@@ -180,9 +219,9 @@ class _InicioState extends State<Inicio> {
                             width: MediaQuery.of(context).size.width,
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 10),
-                            decoration: const BoxDecoration(
-                                color: Color(0xff6b9080),
-                                borderRadius: BorderRadius.only(
+                            decoration: BoxDecoration(
+                                color: _getColor(element["tipo"]),
+                                borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(20),
                                     bottomRight: Radius.circular(20))),
                             child: Column(
@@ -190,13 +229,6 @@ class _InicioState extends State<Inicio> {
                               children: [
                                 Text(
                                   "${element["nombre"]}",
-                                  style: const TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.white,
-                                      fontFamily: "Aubrey"),
-                                ),
-                                Text(
-                                  "${element["contenidocal"]}kcal",
                                   style: const TextStyle(
                                       fontSize: 15.0,
                                       color: Colors.white,
@@ -219,7 +251,7 @@ class _InicioState extends State<Inicio> {
                   children: [
                     InkWell(
                       onTap: (){
-                        Navigator.pushNamed(context, "/stats");
+                        // Navigator.pushNamed(context, "/stats");
                       },
                       child: Text(
                       "Estadisticas",
@@ -229,11 +261,11 @@ class _InicioState extends State<Inicio> {
                           color: Theme.of(context).colorScheme.secondary),
                     ),
                     ),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/stats");
-                        },
-                        icon: const Icon(Icons.arrow_forward_ios_rounded))
+                    // IconButton(
+                    //     onPressed: () {
+                    //       Navigator.pushNamed(context, "/stats");
+                    //     },
+                    //     icon: const Icon(Icons.arrow_forward_ios_rounded))
                   ],
                 ),
               ],

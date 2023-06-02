@@ -53,7 +53,7 @@ class _PerfilState extends State<Perfil> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 150,
             ),
             Text("Tu proxima cita es el: 01/06/2023",
                 style: TextStyle(

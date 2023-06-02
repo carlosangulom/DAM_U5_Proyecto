@@ -18,24 +18,21 @@ Future<bool> loginUser(String user, String password) async {
 
 Future<void> crearUser(
     String user, String password, String nombre, String apellido) async {
-  await db.collection('usuarios').add({
-    'user': user,
-    'password': password,
-    'nombre': nombre,
-    'avatar': nombre
-  });
+  await db.collection('usuarios').add(
+      {'user': user, 'password': password, 'nombre': nombre, 'avatar': nombre});
 }
 
 Future<void> updateUser(String nombre, String avatar, String uid) async {
-  await db.collection("usuarios").doc(uid).update({"nombre": nombre, "avatar": avatar});
+  await db
+      .collection("usuarios")
+      .doc(uid)
+      .update({"nombre": nombre, "avatar": avatar});
 }
 
 Future<List> getUserData(String usuario) async {
   List user = [];
-  var userDataQuery = await db
-      .collection('usuarios')
-      .where('user', isEqualTo: usuario)
-      .get();
+  var userDataQuery =
+      await db.collection('usuarios').where('user', isEqualTo: usuario).get();
   for (var element in userDataQuery.docs) {
     final data = element.data();
     final userData = {
@@ -49,12 +46,11 @@ Future<List> getUserData(String usuario) async {
   return user;
 }
 
-
 Future<List> getAllComidas() async {
   List comidas = [];
   var comidasDataQuery = await db.collection("comidas").get();
 
-  for(var element in comidasDataQuery.docs){
+  for (var element in comidasDataQuery.docs) {
     final data = element.data();
     final comidasData = {
       "nombre": data["nombre"],
@@ -71,21 +67,48 @@ Future<List> getAllComidas() async {
 Future<List> getComidasDia() async {
   List comidas = await getAllComidas();
   List comidasDia = [];
-  var desayuno = comidas.where((element) => element["tipo"].toString().contains("Desayuno")).toList();
-  var colaciones = comidas.where((element) => element["tipo"].toString().contains("Colaciones")).toList();
-  var comida = comidas.where((element) => element["tipo"].toString().contains("Comida")).toList();
-  var cena = comidas.where((element) => element["tipo"].toString().contains("Cena")).toList();
-  comidasDia.addAll({desayuno.last, colaciones.first, comida.last, colaciones.last, cena.last});
+  var desayuno = comidas
+      .where((element) => element["tipo"].toString().contains("Desayuno"))
+      .toList();
+  var colaciones = comidas
+      .where((element) => element["tipo"].toString().contains("Colaciones"))
+      .toList();
+  var comida = comidas
+      .where((element) => element["tipo"].toString().contains("Comida"))
+      .toList();
+  var cena = comidas
+      .where((element) => element["tipo"].toString().contains("Cena"))
+      .toList();
+  comidasDia.addAll({
+    desayuno.last,
+    colaciones.first,
+    comida.last,
+    colaciones.last,
+    cena.last
+  });
   return comidasDia;
 }
 
-Future<List> getComidas() async {
+Future<Map> getComidas() async {
   List comidas = await getAllComidas();
-  List comidasDia = [];
-  var desayuno = comidas.where((element) => element["tipo"].toString().contains("Desayuno")).toList();
-  var colaciones = comidas.where((element) => element["tipo"].toString().contains("Colaciones")).toList();
-  var comida = comidas.where((element) => element["tipo"].toString().contains("Comida")).toList();
-  var cena = comidas.where((element) => element["tipo"].toString().contains("Cena")).toList();
-  comidasDia.addAll({desayuno, comida, cena, colaciones});
+  Map comidasDia = {};
+  var desayuno = comidas
+      .where((element) => element["tipo"].toString().contains("Desayuno"))
+      .toList();
+  var colaciones = comidas
+      .where((element) => element["tipo"].toString().contains("Colaciones"))
+      .toList();
+  var comida = comidas
+      .where((element) => element["tipo"].toString().contains("Comida"))
+      .toList();
+  var cena = comidas
+      .where((element) => element["tipo"].toString().contains("Cena"))
+      .toList();
+  comidasDia = {
+    "desayuno": desayuno,
+    "comida": comida,
+    "cena": cena,
+    "colaciones": colaciones
+  };
   return comidasDia;
 }

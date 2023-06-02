@@ -31,12 +31,6 @@ class _ChatPageState extends State<ChatPage> {
     _loadMessages();
   }
 
-  // void _addMessage(types.Message message) {
-  //   setState(() {
-  //     _messages.insert(0, message);
-  //   });
-  // }
-
   void _addMessage(types.Message message) {
     setState(() {
       _messages.insert(0, message);
