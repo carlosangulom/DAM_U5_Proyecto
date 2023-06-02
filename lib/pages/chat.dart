@@ -83,7 +83,6 @@ class _ChatPageState extends State<ChatPage> {
               TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
-                  _handleFileSelection();
                 },
                 icon: const Icon(Icons.cancel),
                 label: const Text('Cancelar'),
