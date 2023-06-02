@@ -61,7 +61,7 @@ class _ChatPageState extends State<ChatPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -72,7 +72,7 @@ class _ChatPageState extends State<ChatPage> {
                   child: Text('Imagen'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -83,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
                   child: Text('Archivo'),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextButton(
                 onPressed: () => Navigator.pop(context),
                 child: const Align(
