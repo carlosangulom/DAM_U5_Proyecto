@@ -252,6 +252,7 @@ class _ChatPageState extends State<ChatPage> {
         deliveredIcon: Icon(Icons.check,),
         primaryColor: Color(0xff6b9080),
         secondaryColor: Colors.indigo,
+        receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
       ),
     ),
   );
