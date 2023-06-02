@@ -62,34 +62,31 @@ class _ChatPageState extends State<ChatPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const SizedBox(height: 10,),
-              TextButton(
+              TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
                   _handleImageSelection();
                 },
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('Imagen'),
-                ),
+                icon: const Icon(Icons.image),
+                label: const Text('Imagen'),
               ),
               const SizedBox(height: 10,),
-              TextButton(
+              TextButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
                   _handleFileSelection();
                 },
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('Archivo'),
-                ),
+                icon: const Icon(Icons.file_open),
+                label: const Text('Archivo'),
               ),
               const SizedBox(height: 10,),
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: Text('Cancelar'),
-                ),
+              TextButton.icon(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _handleFileSelection();
+                },
+                icon: const Icon(Icons.cancel),
+                label: const Text('Cancelar'),
               ),
             ],
           ),
@@ -251,8 +248,9 @@ class _ChatPageState extends State<ChatPage> {
         sentMessageDocumentIconColor: Color(0xff6b9080),
         deliveredIcon: Icon(Icons.check,),
         primaryColor: Color(0xff6b9080),
-        secondaryColor: Colors.indigo,
+        secondaryColor: Color(0xffA3B18A),
         receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
+        receivedMessageBodyLinkTextStyle: TextStyle(color: Colors.tealAccent),
       ),
     ),
   );
