@@ -9,7 +9,6 @@ class AuthService {
       "apellido": user["apellido"],
       "usuario":user["user"]
     };
-    _isLogged = false;
     _comidasDia = comidasDia;
   }
 
@@ -20,8 +19,6 @@ class AuthService {
   };
 
   List _comidasDia = [];
-
-  bool _isLogged = false;
 
   Map get user => _user;
   set user(Map value) => user.addAll(value);

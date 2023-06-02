@@ -7,7 +7,6 @@ import 'firebase_options.dart';
 import './pages/login.dart';
 import './pages/registro.dart';
 import './pages/edit_user.dart';
-import './pages/plan.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
