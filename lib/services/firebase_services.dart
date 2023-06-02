@@ -26,6 +26,10 @@ Future<void> crearUser(
   });
 }
 
+Future<void> updateUser(String nombre, String avatar, String uid) async {
+  await db.collection("usuarios").doc(uid).update({"nombre": nombre, "avatar": avatar});
+}
+
 Future<List> getUserData(String usuario) async {
   List user = [];
   var userDataQuery = await db
@@ -35,6 +39,7 @@ Future<List> getUserData(String usuario) async {
   for (var element in userDataQuery.docs) {
     final data = element.data();
     final userData = {
+      "uid": element.id,
       "nombre": data["nombre"],
       "avatar": data["avatar"],
       "user": data["user"]

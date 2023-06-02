@@ -37,6 +37,7 @@ class _HomeState extends State<Home> {
       getUserData("carlos").then((data) => setState(
             () {
               user = {
+                "uid": data.first["uid"],
                 "nombre": data.first["nombre"],
                 "usuario": data.first["user"],
                 "avatar": data.first["avatar"]
@@ -76,7 +77,9 @@ class _HomeState extends State<Home> {
               ? [
                   IconButton(
                     icon: const Icon(Icons.chat_rounded),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/chat");
+                    },
                   ),
                   const SizedBox(
                     width: 10,

@@ -1,7 +1,9 @@
+import 'package:dam_u5_proyecto/services/firebase_services.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:random_avatar/random_avatar.dart';
 
+import '../services/auth_service.dart';
 
 class EditUser extends StatefulWidget {
   const EditUser({Key? key}) : super(key: key);
@@ -11,10 +13,19 @@ class EditUser extends StatefulWidget {
 }
 
 class _EditUserState extends State<EditUser> {
+  AuthService authService = AuthService();
+
+  String avatar = " ";
+  @override
+  void initState() {
+    super.initState();
+    avatar = "${authService.user["avatar"]}";
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Map arguments = (ModalRoute.of(context)!.settings.arguments ??{}) as Map;
+    final Map arguments =
+        (ModalRoute.of(context)!.settings.arguments ?? {}) as Map;
 
     return Scaffold(
       appBar: AppBar(
@@ -33,41 +44,56 @@ class _EditUserState extends State<EditUser> {
       body: Center(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 50,
+                height: 150,
               ),
               Stack(
                 children: [
-                  RandomAvatar("barocio", height: 100, width: 100),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.edit), alignment: Alignment.bottomRight,)
+                  RandomAvatar(avatar, height: 100, width: 100),
+                  Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Color(0xff6b9080)),
+                        child: IconButton(
+                          onPressed: () {
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.custom,
+                              confirmBtnText: "Aceptar",
+
+                              widget: TextFormField(
+                                decoration: InputDecoration(
+                                  alignLabelWithHint: true,
+                                  hintText: "${arguments["user"]["avatar"]}",
+                                  prefixIcon: const Icon(
+                                    Icons.account_circle,
+                                  ),
+                                ),
+                              ),
+                              onConfirmBtnTap: () {},
+                              showCancelBtn: true,
+                              confirmBtnColor: const Color(0xff6b9080),
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.background,
+                              cancelBtnText: "cancelar");
+                          },
+                          icon: const Icon(Icons.edit),
+                          alignment: Alignment.bottomRight,
+                          color: Colors.white,
+                        ),
+                      ))
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              InkWell(
-                onTap: () {
-                  QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.custom,
-                      confirmBtnText: "Aceptar",
-                      widget: TextFormField(
-                        decoration: InputDecoration(
-                          alignLabelWithHint: true,
-                          hintText: "${arguments["user"]["nombre"]}",
-                          prefixIcon: const Icon(
-                            Icons.person,
-                          ),
-                        ),
-                      ),
-                      onConfirmBtnTap: () {},
-                      showCancelBtn: true,
-                      confirmBtnColor:  const Color(0xff6b9080),
-                      backgroundColor: Theme.of(context).colorScheme.background,
-                      cancelBtnText: "cancelar");
-                },
-                child: Row(
+              Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("${arguments["user"]["nombre"]}",
@@ -78,39 +104,60 @@ class _EditUserState extends State<EditUser> {
                     const SizedBox(
                       width: 5,
                     ),
-                    Icon(Icons.edit,
-                        color: Theme.of(context).colorScheme.secondary)
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: Color(0xff6b9080)),
+                      child: IconButton(
+                        onPressed: () {
+                          QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.custom,
+                              confirmBtnText: "Aceptar",
+                              customAsset: "assets/dialogs/edit.gif",
+                              widget: TextFormField(
+                                decoration: InputDecoration(
+                                  alignLabelWithHint: true,
+                                  hintText: "${arguments["user"]["nombre"]}",
+                                  prefixIcon: const Icon(
+                                    Icons.person,
+                                  ),
+                                ),
+                              ),
+                              onConfirmBtnTap: () {},
+                              showCancelBtn: true,
+                              confirmBtnColor: const Color(0xff6b9080),
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.background,
+                              cancelBtnText: "cancelar");
+                        },
+                        icon: const Icon(Icons.edit),
+                        alignment: Alignment.bottomRight,
+                        color: Colors.white,
+                      ),
+                    )
                   ],
-                ),
               ),
               const SizedBox(
-                height: 15,
+                height: 150,
               ),
-              const Row(
+              ElevatedButton(onPressed: (){}, child: const Text("Cambiar contraseña")),
+              const Spacer(flex: 1,),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.emoji_people_rounded),
-                  Text(" Estatura: 170cm"),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Icon(Icons.scale_rounded),
-                  Text(" Peso: 170cm"),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Icon(Icons.calendar_month_rounded),
-                  Text(" Edad: 22")
+                  ElevatedButton(onPressed: (){}, child: const Text("Cancelar")),
+                  const SizedBox(width: 30,),
+                  ElevatedButton(onPressed: (){
+                    updateUser("Carlos A", "ccaaggrrllooss", arguments["user"]["uid"]);
+                    Navigator.popAndPushNamed(context, "/perfil");
+                  }, child: const Text("Aceptar"))
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 50,
               ),
-              Text("Tu proxima cita es el: 01/06/2023",
-                  style: TextStyle(
-                      fontFamily: "Aubrey",
-                      fontSize: 20,
-                      color: Theme.of(context).colorScheme.secondary)),
             ],
           ),
         ),
