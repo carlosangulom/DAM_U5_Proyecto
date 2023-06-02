@@ -251,7 +251,8 @@ class _ChatPageState extends State<ChatPage> {
         secondaryColor: Color(0xffA3B18A),
         receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
         receivedMessageBodyLinkTextStyle: TextStyle(color: Colors.tealAccent),
-        receivedMessageLinkDescriptionTextStyle: TextStyle(color: Colors.tealAccent)
+        receivedMessageLinkDescriptionTextStyle: TextStyle(color: Colors.tealAccent),
+        receivedMessageLinkTitleTextStyle: TextStyle(color: Colors.tealAccent),
       ),
     ),
   );
