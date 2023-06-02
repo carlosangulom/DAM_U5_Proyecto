@@ -37,7 +37,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   List<types.Message> _messages = [];
   final _user = const types.User(
-    id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
+    id: 'e52552f4-835d-4dbe-ba77-b076e659774d',
   );
 
   @override
@@ -252,7 +252,7 @@ class _ChatPageState extends State<ChatPage> {
         receivedMessageBodyTextStyle: TextStyle(color: Colors.white),
         receivedMessageBodyLinkTextStyle: TextStyle(color: Colors.tealAccent),
         receivedMessageLinkDescriptionTextStyle: TextStyle(color: Colors.tealAccent),
-        receivedMessageLinkTitleTextStyle: TextStyle(color: Colors.tealAccent),
+        receivedMessageLinkTitleTextStyle: TextStyle(color: Colors.tealAccent, fontWeight: FontWeight.bold),
       ),
     ),
   );
